@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Timeentry
+
+# Model Form Field configuration
+form: $/michal/timeentry/models/timeentry/fields.yaml
+
+# Model Class name
+modelClass: Michal\Timeentry\Models\Timeentry
+
+# Default redirect location
+defaultRedirect: michal/timeentry/timeentries
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: michal/timeentry/timeentries/update/:id
+    redirectClose: michal/timeentry/timeentries
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: michal/timeentry/timeentries
+    redirectClose: michal/timeentry/timeentries
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
