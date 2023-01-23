@@ -3,6 +3,25 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    project_name:
+        label: 'Project Name'
+        type: text
+    customer:
+        label: 'Customer'
+        type: text
+    project_manager:
+        label: Project Manager
+        type: recordfinder
+        list: ~/plugins/rainlab/user/models/user/columns.yaml
+        title: Set Project Manager
+        prompt: Set The Project Manager
+    budget_type:
+        label: 'Budget Type'
+        type: number
+    budget:
+        label: 'Budget'
+        type: number
+    is_completed:
+        label: 'Is Completed'
+        type: switch
+

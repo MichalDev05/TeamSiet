@@ -81,12 +81,12 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
+        //return []; // Remove this line to activate
 
         return [
             'task' => [
                 'label'       => 'task',
-                'url'         => Backend::url('michal/task/mycontroller'),
+                'url'         => Backend::url('michal/task/tasks'),
                 'icon'        => 'icon-leaf',
                 'permissions' => ['michal.task.*'],
                 'order'       => 500,

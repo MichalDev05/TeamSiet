@@ -6,3 +6,17 @@ columns:
     id:
         label: ID
         searchable: true
+    start_time:
+        label: Start Time
+        searchable: true
+    end_time:
+        label: End Time
+        searchable: true
+    user[username]:
+        label: User
+        searchable: true
+    task[task_name]:
+        label: Task
+        searchable: true
+
+

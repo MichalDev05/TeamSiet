@@ -81,12 +81,12 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
+        //return []; // Remove this line to activate
 
         return [
             'timeentry' => [
                 'label'       => 'timeentry',
-                'url'         => Backend::url('michal/timeentry/mycontroller'),
+                'url'         => Backend::url('michal/timeentry/timeentries'),
                 'icon'        => 'icon-leaf',
                 'permissions' => ['michal.timeentry.*'],
                 'order'       => 500,

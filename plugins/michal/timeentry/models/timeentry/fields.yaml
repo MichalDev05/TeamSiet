@@ -3,6 +3,22 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    start_time:
+        label: Start Time
+        type: datepicker
+    end_time:
+        label: End Time
+        type: datepicker
+    user:
+        label: User
+        type: recordfinder
+        list: ~/plugins/rainlab/user/models/user/columns.yaml
+        title: Set User
+        prompt: Set User
+    task:
+        label: Task
+        type: recordfinder
+        list: ~/plugins/michal/task/models/task/columns.yaml
+        title: Set Task
+        prompt: Set Task
+

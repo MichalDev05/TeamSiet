@@ -3,6 +3,33 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    task_name:
+        label: 'Task Name'
+    project:
+        label: Project
+        type: recordfinder
+        list: ~/plugins/michal/project/models/project/columns.yaml
+        title: Project
+        prompt: Set The Project
+        useRelation: true
+        nameFrom: project_name
+    planned_start:
+        label: Planned Start
+        type: datepicker
+    planned_end:
+        label: Planned End
+        type: datepicker
+    # planned_time:
+    #     label: Planned Time
+    #     type: datepicker
+    #     mode: time
+    is_completed:
+        label: 'Is Completed'
+        type: switch
+    tags:
+        label: 'Tags'
+        type: text
+    description:
+        label: 'Description'
+        type: textarea
+

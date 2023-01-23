@@ -62,11 +62,11 @@ class Task extends Model
      */
 
     public $hasMany = [
-        "timeentry" => ["Michal\Timeentry\Model\Timeentry"]
+        "timeentry" => ["Michal\Timeentry\Models\Timeentry"]
     ];
 
     public $belongsTo = [
-        "project" => ["Michal\Project\Model\Project", "key" => "project_id"]
+        "project" => ["Michal\Project\Models\Project"]
     ];
 
 

@@ -12,7 +12,7 @@ class CreateTasksTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
 
-            $table->integer('task_name');
+            $table->string('task_name');
             $table->integer('project_id');
 
             $table->date('planned_start')->nullable();
