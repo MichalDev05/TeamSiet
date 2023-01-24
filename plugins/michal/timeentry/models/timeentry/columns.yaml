@@ -12,6 +12,9 @@ columns:
     end_time:
         label: End Time
         searchable: true
+    total_time:
+        label: Total Time
+        searchable: true
     user[username]:
         label: User
         searchable: true

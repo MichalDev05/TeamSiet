@@ -12,10 +12,10 @@ use Illuminate\Routing\Controller;
 
 class TimeEntryController extends Controller{
 
-    public function getTaskTimeentries()
+    public function getTaskTimeentries($id)
     {
 
-        return TimeEntryResource::collection(TimeEntry::where("task_id", post("taskId"))->get());
+        return TimeEntryResource::collection(TimeEntry::where("task_id", $id)->get());
     }
 
 
@@ -40,23 +40,18 @@ class TimeEntryController extends Controller{
         return TimeEntryResource::make($timeentry);
     }
 
-    public function endTimeentry()
+    public function endTimeentry($id)
     {
         $timeentry = TimeEntry::where("task_id", post("taskId"))
-            ->where("user_id", auth()->user()->id)
-            ->where("id",  post("id"))
-            ->firstOrFail();
+        ->where("user_id", auth()->user()->id)
+        ->where("id", $id)
+        ->firstOrFail();
+
 
 
         $timeentry->end_time = new DateTime();
 
-        $startTime = new DateTime($timeentry->start_time);
-        $endTime = new DateTime();
-        $diffTime = $startTime->diff($endTime);
 
-
-        //$timeentry->total_time = $diffTime->format('%H:%I:%S');
-        $timeentry->total_time = $diffTime->format('%Y-%m-%d %H:%i:%s');
         $timeentry->save();
         return TimeEntryResource::make($timeentry);
     }
@@ -64,15 +59,24 @@ class TimeEntryController extends Controller{
 
 
 
+    public function getTimeentry($id)
+    {
+        return TimeEntry::where("task_id", get("taskId"))
+        ->where("user_id", auth()->user()->id)
+        ->where("id",  $id)
+        ->firstOrFail();
+    }
 
 
 
-    public function deleteTimeentry()
+
+
+    public function deleteTimeentry($id)
     {
 
         $timeentry = TimeEntry::where("task_id", post("taskId"))
             ->where("user_id", auth()->user()->id)
-            ->where("id",  post("id"))
+            ->where("id", $id)
             ->firstOrFail();
 
         $timeentry->delete();

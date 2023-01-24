@@ -38,9 +38,9 @@ class ProjectController extends Controller{
 
 
 
-    public function editProject()
+    public function editProject($id)
     {
-        $id = post("id");
+        //$id = post("id");
         if ($id == null) return "error: Project id is not set!";
 
         $project = Project::where("id", $id)
@@ -59,8 +59,8 @@ class ProjectController extends Controller{
 
     }
 
-    public function completeProject(){
-        $id = post("id");
+    public function completeProject($id){
+        //$id = post("id");
         if ($id == null) return "error: Project id is not set!";
 
         $project = Project::where("id", $id)
@@ -72,9 +72,9 @@ class ProjectController extends Controller{
         return ProjectResource::make($project);
     }
 
-    public function deleteProject()
+    public function deleteProject($id)
     {
-        $id = post("id");
+        //$id = post("id");
         if ($id == null) return "error: Project id is not set!";
 
         $project = Project::where("id", $id)

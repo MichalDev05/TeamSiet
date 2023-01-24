@@ -1,5 +1,6 @@
 <?php namespace Michal\Task\Models;
 
+use Carbon\Carbon;
 use Model;
 
 /**
@@ -57,8 +58,7 @@ class Task extends Model
         'updated_at',
         'planned_start',
         'planned_end',
-        'planned_time',
-        'tracked_time'
+        'planned_time'
 
     ];
 
@@ -74,6 +74,32 @@ class Task extends Model
         "project" => ["Michal\Project\Models\Project"],
         "user" => ["Rainlab\User\Models\User"]
     ];
+
+    public function beforeSave(){
+        $this->getTrackedTimeAttribute();
+    }
+    public function beforeCreate(){
+        $this->getTrackedTimeAttribute();
+    }
+
+
+    public function getTrackedTimeAttribute()
+    {
+
+        $time = new Carbon(0-0-0);
+
+
+        foreach ($this->time_entries as $timeEntry) {
+            $newTime = Carbon::parse($timeEntry->total_time);
+            $time->addSecond($newTime->second);
+            $time->addMinute($newTime->minute);
+            $time->addHour($newTime->hour);
+
+
+        }
+        $this->tracked_time = $time;
+        echo($time->format('H:i:s'));
+    }
 
 
 }

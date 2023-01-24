@@ -39,25 +39,24 @@ class TaskController extends Controller{
         return TaskResource::make($task);
     }
 
-    public function getProjectTasks()
+    public function getProjectTasks($id)
     {
 
         //If Fails, User Does Not Have Access To Project In Wich This Task Is Part Of.
-        Project::where("id", post("projectId"))
+        Project::where("id", $id)
             ->where("project_manager_id", auth()->user()->id)
             ->firstOrFail();
 
-
         return TaskResource::collection(Task::where("project_id", post("projectId"))
-            ->firstOrFail());
+            ->get());
 
 
     }
 
 
-    public function editTask()
+    public function editTask($id)
     {
-        $id = post("id");
+
         if ($id == null) return "error: Task id is not set!";
 
         //If Fails, User Does Not Have Access To Project In Wich This Task Is Part Of.
@@ -90,8 +89,8 @@ class TaskController extends Controller{
 
     }
 
-    public function completeTask(){
-        $id = post("id");
+    public function completeTask($id){
+        //$id = post("id");
         if ($id == null) return "error: Task id is not set!";
 
         //If Fails, User Does Not Have Access To Project In Wich This Task Is Part Of.
@@ -102,14 +101,16 @@ class TaskController extends Controller{
         $task = Task::where("id", $id)
             ->firstOrFail();
 
+        //$task->getTrackedTimeAttribute();
+
         $task->is_completed = post("isCompleted")?: $task->is_completed;
         $task->save();
         return TaskResource::make($task);
     }
 
-    public function deleteTask()
+    public function deleteTask($id)
     {
-        $id = post("id");
+        //$id = post("id");
         if ($id == null) return "error: Task id is not set!";
 
         //If Fails, User Does Not Have Access To Project In Wich This Task Is Part Of.

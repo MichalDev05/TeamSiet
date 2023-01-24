@@ -1,5 +1,7 @@
 <?php namespace Michal\TimeEntry\Models;
 
+use DateTime;
+use Michal\TimeEntry\Http\Resources\TimeEntryResource;
 use Model;
 
 /**
@@ -67,6 +69,23 @@ class TimeEntry extends Model
         "user" => ["Rainlab\User\Models\User"],
         "task" => ["Michal\Task\Models\Task"]
     ];
+
+    public function beforeSave()
+    {
+        if ($this->end_time != null){
+            $startTime = new DateTime($this->start_time);
+            $endTime = new DateTime();
+            $diffTime = $startTime->diff($endTime);
+
+
+            $this->total_time = $diffTime->format('%H:%I:%S');
+            //$this->total_time = $diffTime->format('%Y-%m-%d %H:%i:%s');
+        }
+
+    }
+
+
+
 
 
     // public $hasOne = [];
