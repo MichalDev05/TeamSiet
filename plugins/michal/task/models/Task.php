@@ -54,7 +54,12 @@ class Task extends Model
      */
     protected $dates = [
         'created_at',
-        'updated_at'
+        'updated_at',
+        'planned_start',
+        'planned_end',
+        'planned_time',
+        'tracked_time'
+
     ];
 
     /**

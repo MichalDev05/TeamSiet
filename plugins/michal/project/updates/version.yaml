@@ -1,3 +1,4 @@
 1.0.1:
     - First version of project
     - create_projects_table.php
+    - create_projects_accountants_table.php

@@ -53,9 +53,9 @@ class TimeEntryController extends Controller{
         $startTime = new DateTime($timeentry->start_time);
         $endTime = new DateTime();
         $diffTime = $startTime->diff($endTime);
-        //return $diffTime->format('%Y-%m-%d %H:%i:%s');
 
 
+        //$timeentry->total_time = $diffTime->format('%H:%I:%S');
         $timeentry->total_time = $diffTime->format('%Y-%m-%d %H:%i:%s');
         $timeentry->save();
         return TimeEntryResource::make($timeentry);
