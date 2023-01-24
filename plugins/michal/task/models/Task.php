@@ -85,6 +85,8 @@ class Task extends Model
 
     public function getTrackedTimeAttribute()
     {
+        // $this->tracked_time = $this->time_entries()->sum("total_time");
+        // echo $this->time_entries()->sum("total_time");
 
         $time = new Carbon(0-0-0);
 

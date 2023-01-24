@@ -9,6 +9,10 @@ fields:
     end_time:
         label: End Time
         type: datepicker
+    total_time:
+        label: Total Time
+        type: datepicker
+        mode: time
     user:
         label: User
         type: recordfinder

@@ -3,6 +3,7 @@
 namespace Michal\Project\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use LibUser\Userapi\Http\Resources\UserResource;
 use Rainlab\User\Facades\Auth;
 
 class ProjectResource extends JsonResource{
@@ -15,7 +16,9 @@ class ProjectResource extends JsonResource{
 
             'project_name' => $this->project_name,
             'customer_id' => $this->customer_id,
+            'customer' => new UserResource($this->customer),
             'project_manager_id' => $this->project_manager_id,
+            'project_manager' => new UserResource($this->project_manager),
 
             'due_date' => $this->due_date,
 
