@@ -1,7 +1,9 @@
 <?php namespace Michal\Task;
 
 use Backend;
+use Michal\TimeEntry\Models\TimeEntry;
 use System\Classes\PluginBase;
+use Michal\TimeEntry\Classes\Extend\UserExtend;
 
 /**
  * task Plugin Information File
@@ -29,16 +31,6 @@ class Plugin extends PluginBase
      * @return void
      */
     public function register()
-    {
-
-    }
-
-    /**
-     * Boot method, called right before the request route.
-     *
-     * @return array
-     */
-    public function boot()
     {
 
     }
@@ -93,4 +85,9 @@ class Plugin extends PluginBase
             ],
         ];
     }
+
+    public function boot(){
+        UserExtend::extendUser();
+    }
+
 }

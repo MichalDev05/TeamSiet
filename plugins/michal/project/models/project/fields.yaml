@@ -8,13 +8,20 @@ fields:
         type: text
     customer:
         label: 'Customer'
-        type: text
+        type: recordfinder
+        list: ~/plugins/rainlab/user/models/user/columns.yaml
+        title: Set Customer
+        prompt: Set The Customer
     project_manager:
         label: Project Manager
         type: recordfinder
         list: ~/plugins/rainlab/user/models/user/columns.yaml
         title: Set Project Manager
         prompt: Set The Project Manager
+    due_date:
+        label: Due Date
+        type: datepicker
+        mode: date
     budget_type:
         label: 'Budget Type'
         type: number

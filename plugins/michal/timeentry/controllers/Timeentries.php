@@ -1,4 +1,4 @@
-<?php namespace Michal\Timeentry\Controllers;
+<?php namespace Michal\TimeEntry\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
@@ -6,7 +6,7 @@ use Backend\Classes\Controller;
 /**
  * Timeentries Back-end Controller
  */
-class Timeentries extends Controller
+class TimeEntries extends Controller
 {
     /**
      * @var array Behaviors that are implemented by this controller.
@@ -30,6 +30,6 @@ class Timeentries extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Michal.Timeentry', 'timeentry', 'timeentries');
+        BackendMenu::setContext('Michal.TimeEntry', 'time_entry', 'time_entries');
     }
 }

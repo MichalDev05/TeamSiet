@@ -66,7 +66,11 @@ class Project extends Model
         "tasks" => ["Michal\Task\Model\Task"]
     ];
     public $belongsTo = [
-        "project_manager" => ["Rainlab\User\Models\User", "key" => "project_manager_id"]
+        "project_manager" => ["Rainlab\User\Models\User"],
+        "customer" => ["Rainlab\User\Models\User"]
+    ];
+    public $belongsToMany = [
+        "accounting_users" => ["Rainlab\User\Models\User", "table" => "michal_project_accountants"]
     ];
 
 }

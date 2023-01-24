@@ -1,11 +1,11 @@
-<?php namespace Michal\Timeentry\Models;
+<?php namespace Michal\TimeEntry\Models;
 
 use Model;
 
 /**
  * timeentry Model
  */
-class Timeentry extends Model
+class TimeEntry extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Michal\Timeentry\Http\Resources;
+namespace Michal\TimeEntry\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Rainlab\User\Facades\Auth;
 
-class TimeentryResource extends JsonResource{
+class TimeEntryResource extends JsonResource{
 
 
     public function toArray($request)

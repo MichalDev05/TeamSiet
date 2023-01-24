@@ -31,6 +31,7 @@ class ProjectController extends Controller{
         $project->project_name = post("projectName");
         $project->customer = post("customer");
         $project->project_manager_id = auth()->user()->id;
+        $project->customer_id = post("customerId");
         $project->save();
         return ProjectResource::make($project);
     }
@@ -47,7 +48,7 @@ class ProjectController extends Controller{
             ->firstOrFail();
 
         $project->project_name = post("projectName") ?: $project->project_name;
-        $project->customer = post("customer") ?:  $project->customer;
+        $project->customer_id = post("customerId") ?:  $project->customer_id;
         $project->project_manager_id = auth()->user()->id;
         $project->due_date = post("dueDate")?:  $project->due_date;
         $project->budget_type = post("budgetType")?: $project->budget_type;
