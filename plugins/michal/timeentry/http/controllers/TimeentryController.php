@@ -42,8 +42,7 @@ class TimeEntryController extends Controller{
 
     public function endTimeentry($id)
     {
-        $timeentry = TimeEntry::where("task_id", post("taskId"))
-        ->where("user_id", auth()->user()->id)
+        $timeentry = TimeEntry::where("user_id", auth()->user()->id)
         ->where("id", $id)
         ->firstOrFail();
 
@@ -61,8 +60,7 @@ class TimeEntryController extends Controller{
 
     public function getTimeentry($id)
     {
-        return TimeEntry::where("task_id", get("taskId"))
-        ->where("user_id", auth()->user()->id)
+        return TimeEntry::where("user_id", auth()->user()->id)
         ->where("id",  $id)
         ->firstOrFail();
     }
@@ -74,8 +72,7 @@ class TimeEntryController extends Controller{
     public function deleteTimeentry($id)
     {
 
-        $timeentry = TimeEntry::where("task_id", post("taskId"))
-            ->where("user_id", auth()->user()->id)
+        $timeentry = TimeEntry::where("user_id", auth()->user()->id)
             ->where("id", $id)
             ->firstOrFail();
 
