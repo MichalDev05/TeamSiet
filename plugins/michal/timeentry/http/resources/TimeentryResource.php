@@ -4,6 +4,7 @@ namespace Michal\TimeEntry\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use LibUser\Userapi\Http\Resources\UserResource;
+use Michal\Task\Models\Task;
 use Rainlab\User\Facades\Auth;
 
 class TimeEntryResource extends JsonResource{
@@ -19,6 +20,7 @@ class TimeEntryResource extends JsonResource{
             'total_time' => $this->total_time,
 
             'task_id' => $this->task_id,
+            'task' => new Task($this->task),
             //'user_id' => $this->user_id,
             'user' => new UserResource($this->user),
 
