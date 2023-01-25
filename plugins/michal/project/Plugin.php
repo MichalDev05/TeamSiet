@@ -3,6 +3,7 @@
 use Backend;
 use System\Classes\PluginBase;
 use Michal\Project\Classes\Extend\UserExtend;
+use Illuminate\Support\Facades\Event;
 
 /**
  * project Plugin Information File
@@ -58,6 +59,8 @@ class Plugin extends PluginBase
 
     public function boot(){
         UserExtend::extendUser();
+
+
     }
 
 }
