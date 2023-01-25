@@ -4,6 +4,7 @@ namespace Michal\Task\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use LibUser\Userapi\Http\Resources\UserResource;
+use Michal\Project\Http\Resources\ProjectResource;
 use Michal\Project\Models\Project;
 use Rainlab\User\Facades\Auth;
 
@@ -17,7 +18,7 @@ class TaskResource extends JsonResource{
 
             'task_name' => $this->task_name,
             'project_id' => $this->project_id,
-            'project' => new Project($this->project),
+            'project' => new ProjectResource($this->project),
             'user' => new UserResource($this->user),
 
             'planned_start' => $this->planned_start,
